@@ -1,0 +1,17 @@
+[Unit]
+Description=BorgBackup System Full Backup
+After=network.target local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/init-backup.sh
+User=root
+Group=root
+
+# Enable isolated temporary space for self-tests
+PrivateTmp=true
+
+# Security hardening options
+ProtectSystem=full
+ReadOnlyPaths=/
+ReadWritePaths=/mnt/backups /var/log /tmp /var/tmp /root/.cache/borg /root/.config/borg

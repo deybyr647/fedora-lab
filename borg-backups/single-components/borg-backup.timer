@@ -1,0 +1,12 @@
+[Unit]
+Description=Run BorgBackup daily at 3:00 AM
+
+[Timer]
+# Runs daily at 3:00 AM local time
+OnCalendar=*-*-* 03:00:00
+
+# If the system was off at 3:00 AM, run the backup immediately upon boot
+Persistent=true
+
+[Install]
+WantedBy=timers.target
