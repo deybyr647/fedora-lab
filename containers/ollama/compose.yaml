@@ -13,7 +13,7 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434'
-      - 'WEBUI_SECRET_KEY=fRQqLOTS2n+Xzi0F6yelJQ=='
+      - 'WEBUI_SECRET_KEY=secure-key-here'
     volumes:
       - ./openwebui_data:/app/backend/data:Z
     ports:
