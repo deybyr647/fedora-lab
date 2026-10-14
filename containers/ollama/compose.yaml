@@ -1,0 +1,23 @@
+services:
+  ollama:
+    container_name: ollama
+    image: docker.io/ollama/ollama:latest
+    volumes:
+      - ./ollama_data:/root/.ollama:Z
+    ports:
+      - "127.0.0.1:11434:11434"
+    restart: always
+
+  open-webui:
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    environment:
+      - 'OLLAMA_BASE_URL=http://ollama:11434'
+      - 'WEBUI_SECRET_KEY=fRQqLOTS2n+Xzi0F6yelJQ=='
+    volumes:
+      - ./openwebui_data:/app/backend/data:Z
+    ports:
+      - "8002:8080"
+    depends_on:
+      - ollama
+    restart: always
