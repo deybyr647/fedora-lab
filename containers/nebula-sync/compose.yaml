@@ -8,4 +8,4 @@ services:
     - REPLICAS=http://10.0.10.3|ilzQMUMi
     - FULL_SYNC=true
     - RUN_GRAVITY=true
-    - CRON=0 * * * *
+    - CRON=*/720 * * * *
